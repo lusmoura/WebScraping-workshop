@@ -10,7 +10,7 @@ def print_words(words, max_words=20):
     
     for i, (k, v) in enumerate(count_words.items()):
         if i > max_words: break
-        print(f'{k}:\t{v}')
+        print(f'{k}:\t\t{v}')
 
 def make_request(url):
     ''' Make request with the request module and treat errors '''

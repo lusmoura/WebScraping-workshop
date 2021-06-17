@@ -31,7 +31,7 @@ def print_words(words, max_words=20):
     
     for i, (k, v) in enumerate(count_words.items()):
         if i > max_words: break
-        print(f'{k}:\t{v}')
+        print(f'{k}:\t\t{v}')
 
 if __name__ == '__main__':
     use_lxml = True                             # set which module to use
