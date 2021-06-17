@@ -82,4 +82,4 @@ O projeto tem uma ideia bem direta: descobrir quais palavras os artistas mais ut
 
 ### Passo a passo que >eu< uso
 
-![Passo a passo para fazer scraping](https://i.ibb.co/vz6HLVY/Screenshot-from-2021-06-17-14-09-50.png)
+<img src="https://i.ibb.co/q13dm75/Screenshot-from-2021-06-17-14-09-50.png">
