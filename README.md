@@ -23,10 +23,10 @@ Todos os códigos são feitos em Python 3. Além disso, são utilizadas algumas 
 - [BeautifulSoup](https://pypi.org/project/beautifulsoup4/)
 - [Lxml](https://pypi.org/project/lxml/)
 
-Outras bibliotecas são utilizadas de apoio, e para instalar tudo, basta utilizar o arquivo [requirements.py](http://requirenments.py) presente nesse repositório por meio do comando:
+Outras bibliotecas são utilizadas de apoio, e para instalar tudo, basta utilizar o arquivo [requirements.txt](https://github.com/lusmoura/WebScraping-workshop/blob/main/requirements.txt) presente nesse repositório por meio do comando:
 
-```jsx
-python3 install -r requirements.py
+```python
+python3 install -r requirements.txt
 ```
 
 ## O projeto
