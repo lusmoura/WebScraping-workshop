@@ -81,7 +81,7 @@ if __name__ == '__main__':
     if use_lxml:
         songs_tags = get_songs_tags_lxml(response)
     else:
-        songs_tags = get_songs_tags_lxml(response)
+        songs_tags = get_songs_tags_bs4(response)
 
     songs_urls = [main_url + song.get('href') for song in songs_tags]
     
