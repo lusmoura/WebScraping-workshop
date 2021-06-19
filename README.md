@@ -26,7 +26,7 @@ Todos os códigos são feitos em Python 3. Além disso, são utilizadas algumas 
 Outras bibliotecas são utilizadas de apoio, e para instalar tudo, basta utilizar o arquivo [requirements.txt](https://github.com/lusmoura/WebScraping-workshop/blob/main/requirements.txt) presente nesse repositório por meio do comando:
 
 ```python
-python3 install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## O projeto
