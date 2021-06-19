@@ -1,85 +1,54 @@
 import re
 from unidecode import unidecode
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support import expected_conditions as EC
 
 def get_driver():
+    ''' Create a driver '''
     chrome_options = Options()
     # chrome_options.add_argument("--headless")
     driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
     return driver
 
+def get_element(driver, xpath):
+    ''' Get element, waiting for it to appear on screen '''
+    return  WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, xpath)))
+
 def make_request(url, driver):
-    ''' Make request with the selenium module and treat errors '''
+    ''' Make request with the selenium module '''
     driver.get(url)
 
-def get_songs_tags(driver):
-    ''' Use lxml to parse artist page '''
-    songs_tags = driver.find_elements_by_xpath('//a[@class="song-name"]')
-    return songs_tags
+def search_artist(artist, driver):
+    ''' Use search bar to search for an artist and go to the page '''
+    url = 'https://open.spotify.com/search'
+    make_request(url, driver)
 
-def get_lyrics(response):
-    ''' Use lxml to parse song lyrics page '''
-    lyrics_tags = driver.find_elements_by_xpath('//div[@class="cnt-letra p402_premium"]')
-    lyrics = [t.text.replace('\n', ' ') for t in lyrics_tags]
-    return lyrics
+    search_tab = get_element(driver, '//input[@data-testid="search-input"]')
+    search_tab.send_keys(artist)
 
-def print_words(words, max_words=20):
-    ''' Print first max_words according to the num of occurences '''
-    count_words = {k: v for k, v in sorted(words.items(), key=lambda item: item[1], reverse=True)}           
-    
-    for i, (k, v) in enumerate(count_words.items()):
-        if i > max_words: break
-        print(f'{k}:\t\t{v}')
+    artist_result = get_element(driver, '//a[@class="f7ebc3d96230ee12a84a9b0b4b81bb8f-scss"]')
+    new_url = artist_result.get_attribute('href')
+
+    make_request(new_url, driver)
+
+def get_listeners(driver):
+    ''' In the artist page, get the number of monthly listeners '''
+    listeners_tag = get_element(driver, '//span[@class="_85aaee9fc23ca61102952862a10b544c-scss"]')
+    listeners = listeners_tag.text
+    return listeners
 
 if __name__ == '__main__':
-    use_lxml = True                             # set which module to use
-    max_songs = 5                               # set amount of songs to consider
-    artist = 'Oasis'                            # set artist
+    artist = 'Oasis'
 
-    main_url = 'https://www.letras.mus.br'      
-    clean_artist = artist.lower().replace(' ', '-')
-    url = main_url + '/' + clean_artist
-
+    main_url = 'https://open.spotify.com/search'
+    
     driver = get_driver()
-
-    # get artist page
-    make_request(url, driver)
-    
-    # parse artist page
-    songs_tags = get_songs_tags(driver)
-    songs_urls = [song.get_attribute('href') for song in songs_tags]
-    
-    count_words = {}
-    num_songs = min(len(songs_urls), max_songs)
-    
-    # get each song
-    for index, url in enumerate(songs_urls[:num_songs], 1):
-        song_name = url.split('/')[-2]
-        print(f'[{index}/{num_songs}] - {song_name}')
-        
-        make_request(url, driver)
-
-        # parse lyrics page
-        lyrics = get_lyrics(driver)
-        
-        # loop over verses and words counting them
-        for verse in lyrics:
-            words = verse.split(' ')
-
-            for word in words:
-                word = word.lower()
-                word = unidecode(word)
-                word = re.sub(r'\W+', '', word)
-
-                if word == '':
-                    continue
-
-                if word in count_words:
-                    count_words[word] += 1
-                else:
-                    count_words[word] = 1
-
-    # sort dict and show result
-    print_words(count_words)
+    search_artist(artist, driver)
+    listeners = get_listeners(driver)
+    print(listeners)
+    driver.quit()
