@@ -31,7 +31,19 @@ pip3 install -r requirements.txt
 
 ## O projeto
 
-O projeto tem uma ideia bem direta: descobrir quais palavras os artistas mais utilizam em suas músicas. Para isso vamos *scrapar* o site [https://www.letras.mus.br/](https://www.letras.mus.br/), buscando todas as músicas de um dado artista.
+O projeto tem uma ideia bem direta: descobrir quais palavras os artistas mais utilizam em suas músicas. Para isso vamos *scrapar* o site [letras.mus](https://www.letras.mus.br/), buscando todas as músicas de um dado artista.
+
+### Versão 1
+Nessa [versão do projeto](https://github.com/lusmoura/WebScraping-workshop/blob/main/requests_letras.py), pegamos as letras do [letras.mus](https://www.letras.mus.br/) e contamos a palavras. 
+
+### Versão 2
+A [segunda versão](https://github.com/lusmoura/WebScraping-workshop/blob/main/requests_html_lastfm.py) do projeto envolve pegar os artistas mais relevantes do [lastfm](https://www.last.fm) e, para cada um desses artistas, fazer a contagem das palavras. Nessa versão usamos requests-html para renderizar a página.
+
+### Versão 3
+Na terceira [versão do projeto](https://github.com/lusmoura/WebScraping-workshop/blob/main/requests_endpoint_lastfm.py), fazemos o mesmo que na versão 2, porém dessa vez é feita a requisição direto em um *endpoint* com a biblioteca requests.
+
+### Versão 4
+A [última versão](https://github.com/lusmoura/WebScraping-workshop/blob/main/selenium_spotify.py) do projeto envolve buscar a quantidade de ouvintes mensais dos artistas no [spotify](https://open.spotify.com/). Para isso usamos selenium.
 
 ## Sobre as ferramentas
 
