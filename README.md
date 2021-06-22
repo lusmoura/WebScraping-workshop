@@ -95,3 +95,20 @@ A [última versão](https://github.com/lusmoura/WebScraping-workshop/blob/main/s
 ### Passo a passo que >eu< uso
 
 <img src="https://i.ibb.co/q13dm75/Screenshot-from-2021-06-17-14-09-50.png">
+
+## Onde aprender mais?
+
+Existem muuuuitos sites com tutoriais por aí, mas eu gosto bastante de usar o Medium para aprender esse tipo de coisa. Algumas sugestões de texto são:
+- [Data Science Skills: Web scraping using python](https://towardsdatascience.com/data-science-skills-web-scraping-using-python-d1a85ef607ed)
+- [Learn Web Scraping using Python in under 5 minutes](https://medium.com/@kaustumbhjaiswal7/learn-web-scraping-using-python-in-under-5-minutes-36a7d4d6e1e7)
+- [Como fazer Web Scraping em Python](https://medium.com/data-hackers/como-fazer-web-scraping-em-python-23c9d465a37f)
+
+Além disso, também tem [esse projeto](https://www.coursera.org/projects/web-scraping) guiado no Coursera que é bem legal.
+
+No mais, pega alguns sites e vai tentando. Se der errado, pesquisa no StackOverflow e tenta entender o que rolou, isso é um processo importante também! 
+
+E uma última dica, tem muuuitos sites diferentes por ai, cada um com sua própria peculiaridade. Não dá para aprender TUDO de scraping sem ir treinando, então recomendo aprender o básico e depois ir pesquisando sob demanda as coisas mais complexas =D
+
+## Último aviso
+
+Vocês tem meus contatos, então podem ficar a vontade pra mandar mensagem/email sempre que precisarem =D
